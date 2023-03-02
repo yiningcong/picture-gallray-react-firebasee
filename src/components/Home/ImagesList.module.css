@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+.starting {
+  margin: 2rem 0;
+  text-align: left;
+}
+
+/* image grid styles */
+.imgGrid {
+  float: left;
+  /* padding: 10px; */
+  column-count: 5;
+  column-gap: 10px;
+  /* Uncomment these lines if you want to have the standard Trello behavior instead of the column wrapping */
+}
+
+@media screen and (max-width: 1200px) {
+  .imgGrid {
+    column-count: 4;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .imgGrid {
+    column-count: 3;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .imgGrid {
+    column-count: 2;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .imgGrid {
+    column-count: 1;
+  }
+}
