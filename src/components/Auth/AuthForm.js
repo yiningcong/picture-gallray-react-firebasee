@@ -49,16 +49,20 @@ const AuthForm = (props) => {
           })
           .then((data) => {
             console.log(data);
+            toast.success("Login successfully!");
             userLogin(data);
           })
           .catch((error) => {
+            setIsLoading(false);
             throw new Error(error);
           });
       } else {
+        setIsLoading(false);
         return toast.error("All fields are mandatory to fill");
       }
     } else {
       if (password !== confirmPassword) {
+        setIsLoading(false);
         return toast.error("Password don't match");
       }
       if (firstName && lastName && email && password) {
@@ -69,16 +73,20 @@ const AuthForm = (props) => {
           .then((data) => {
             // const getToken = data.getIdToken();
             // setToken(getToken);
+            toast.info("Login successfully!");
             updateProfile(data, {
               displayName: `${firstName} ${lastName}`,
             });
             userLogin(data);
           })
           .catch((error) => {
+            setIsLoading(false);
             throw new Error(error);
           });
       } else {
-        return toast.error("All fields are mandatory to fill");
+        setIsLoading(false);
+
+        return toast.error("All fields are mandatory to fill hah haha");
       }
     }
 

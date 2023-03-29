@@ -32,8 +32,8 @@
 
 .btn:hover,
 .btn:active {
-  background-color: rgb(183, 212, 229);
-  color: rgb(0, 162, 255);
+  background-color: rgb(250, 240, 240);
+  color: rgb(194, 14, 14);
 }
 .switch {
   padding: 2rem;
@@ -59,6 +59,8 @@
 .switchButton:active {
   background-color: rgb(210, 210, 210);
   color: rgb(37, 37, 37);
+  border-bottom: solid;
+  border-radius: 0;
 }
 
 .switchButton:focus {

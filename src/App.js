@@ -46,6 +46,7 @@ function App() {
 
   return (
     <Layout>
+      <ToastContainer position="top-center" />
       <Routes>
         <Route path="/" element={<AllImages />} />
         {/* <Route

@@ -66,12 +66,16 @@ const MyBoardsImages = () => {
 
   return (
     <div>
-      <ImagesList
-        imgSet={imgSet}
-        isSaved={isSaved}
-        board={params.boardId}
-        user={params.userId}
-      />
+      {imgSet ? (
+        <ImagesList
+          imgSet={imgSet}
+          isSaved={isSaved}
+          board={params.boardId}
+          user={params.userId}
+        />
+      ) : (
+        <p>No pictures yet, please fill something!</p>
+      )}
     </div>
   );
 };
