@@ -15,6 +15,7 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import { db, storage } from "../firebase";
+import { ToastContainer, toast } from "react-toastify";
 
 const BoardContext = React.createContext({
   isSaved: false,
@@ -39,11 +40,12 @@ export const BoardContextProvider = (props) => {
         const docRef = await addDoc(collection(db, `${user.uid}`), {
           label: newBoard,
         });
+        toast.success("Board created successfully!");
         console.log("Document written with Id:", docRef.id);
       } else {
         // User is signed out
         // ...
-        return;
+        return toast.error("Error happened!");
       }
     });
   };
@@ -119,11 +121,12 @@ export const BoardContextProvider = (props) => {
             imageName: imgId,
           }
         );
+        toast.success("Added to board successfully!");
         console.log("Document written with Id:", docRef.id);
       } else {
         // User is signed out
         // ...
-        return;
+        return toast.error("Error happened!");
       }
     });
   };
@@ -149,6 +152,7 @@ export const BoardContextProvider = (props) => {
       deleteDoc(
         doc(db, "boardContents", `${user.uid}`, `${boardId}`, tobeDeleted[0])
       );
+      toast.success("Image deleted successfully!");
     }
   };
 
@@ -167,6 +171,7 @@ export const BoardContextProvider = (props) => {
         await deleteDoc(
           doc(db, "boardContents", `${user.uid}`, `${boardId}`, document.id)
         );
+        toast.success("Board deleted successfully!");
       });
 
       // const querySnapshot = await getDocs(q);

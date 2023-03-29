@@ -16,8 +16,8 @@ import {
 import { db, storage } from "../firebase";
 import { useContext } from "react";
 import AuthContext from "../store/auth-context";
-import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const AddImage = () => {
   const authCtx = useContext(AuthContext);
@@ -32,7 +32,7 @@ const AddImage = () => {
           author: authCtx.user.displayName,
           uid: authCtx.user.uid,
         });
-        toast.success("Blog created successfully");
+        toast.success("Image created successfully!");
       } catch (err) {
         throw new Error(err);
       }
@@ -44,7 +44,7 @@ const AddImage = () => {
           author: authCtx.user.displayName,
           uid: authCtx.user.uid,
         });
-        toast.success("Blog updated successfully");
+        toast.success("Image updated successfully!");
       } catch (err) {
         throw new Error(err);
       }
@@ -54,6 +54,7 @@ const AddImage = () => {
   return (
     <div>
       <AddImageForm addUpdateImgHandler={addUpdateImgHandler} imgId={imgId} />
+      <ToastContainer />
     </div>
   );
 };

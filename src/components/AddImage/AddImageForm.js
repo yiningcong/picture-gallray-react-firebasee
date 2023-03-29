@@ -14,7 +14,7 @@ import {
 
 import Modal from "react-bootstrap/Modal";
 
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 import { useEffect, useState, useContext, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
@@ -108,7 +108,7 @@ const AddImageForm = (props) => {
     if (title && category && description && imgUrl) {
       props.addUpdateImgHandler(form);
     } else {
-      return toast.error("All fields are mandatory to fill");
+      toast.error("All fields are mandatory to fill!");
     }
     navigate("/");
   };
@@ -140,6 +140,7 @@ const AddImageForm = (props) => {
 
   return (
     <Card>
+      <ToastContainer />
       <div className={classes.wrapper}>
         <h3>Add new image</h3>
         <form onSubmit={submitHandler} className={classes.container}>

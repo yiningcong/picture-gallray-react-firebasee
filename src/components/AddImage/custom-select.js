@@ -5,35 +5,32 @@ import classes from "./custom-select.module.css";
 
 const Menu = (props) => {
   return (
-    <>
-      <components.Menu {...props}>
-        <div>
-          <div>{props.children}</div>
-        </div>
-        <button
-          className={classes.createBoard}
-          onClick={props.selectProps.handleOpen}
-        >
-          Create board
-        </button>
-      </components.Menu>
-    </>
+    <components.Menu {...props}>
+      <div>
+        <div>{props.children}</div>
+      </div>
+      <button
+        className={classes.createBoard}
+        onClick={props.selectProps.handleOpen}
+      >
+        Create board
+      </button>
+    </components.Menu>
   );
 };
 
 const Option = (props) => {
   return (
-    <>
-      <components.Option {...props}>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
-        >
-          <div>{props.children}</div>
-          {/* <div>
+    <components.Option {...props}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <div>{props.children}</div>
+        {/* <div>
             <Button
               variant="danger"
               onClick={props.selectProps.saveToBoardHandler}
@@ -41,9 +38,8 @@ const Option = (props) => {
               Save
             </Button>
           </div> */}
-        </div>
-      </components.Option>
-    </>
+      </div>
+    </components.Option>
   );
 };
 

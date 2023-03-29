@@ -48,21 +48,26 @@ const HighlightedImage = (props) => {
 
   return (
     <Card className={classes.imgWrap} layout whileHover={{ opacity: 1 }}>
-      {isLogin && (
-        <div className={classes.selector}>
+      <div className={classes.selector}>
+        {isLogin && (
           <CustomSelect
             options={options}
             openHandler={handleOpen}
             onChange={handleSelectChange}
           />
-        </div>
-      )}
+        )}
+      </div>
+      <div>
+        <Button
+          variant="danger"
+          className={classes.button}
+          onClick={saveToBoard}
+        >
+          {isLogin ? " Save" : "Open"}
+        </Button>
+      </div>
 
       <img src={props.image} alt="uploaded pic" />
-
-      <Button variant="danger" className={classes.button} onClick={saveToBoard}>
-        {isLogin ? " Save" : "Open"}
-      </Button>
 
       <Modal show={modalShow} onHide={handleClose} animation={false} centered>
         <BoardForm
@@ -71,9 +76,9 @@ const HighlightedImage = (props) => {
         />
       </Modal>
 
-      <div>{props.title}</div>
-      <div>{props.description}</div>
-      <div>{props.author}</div>
+      <div>title: {props.title}</div>
+      <div>description: {props.description}</div>
+      <div>author: {props.author}</div>
     </Card>
   );
 };
